@@ -8,11 +8,11 @@ import './index.css';
 import App from './Containers/App';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import { searchRobots, requestRobots } from './reducers';
+import { searchPokemons, requestPokemons } from './reducers';
 
 const logger = createLogger();
 
-const rootReducer = combineReducers({ searchRobots, requestRobots });
+const rootReducer = combineReducers({ searchPokemons, requestPokemons });
 const store = 
     createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 

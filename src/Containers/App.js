@@ -6,34 +6,34 @@ import Scroll from '../Components/Scroll';
 import ErrorBoundary from '../Components/ErrorBoundary';
 import './App.css';
 
-import { setSearchField, requestRobots } from '../actions';
+import { setSearchField, requestPokemons } from '../actions';
 
 const mapStateToProps = state => {
     return {
-        searchField: state.searchRobots.searchField,
-        robots: state.requestRobots.robots,
-        isPending: state.requestRobots.isPending,
-        error: state.requestRobots.error
+        searchField: state.searchPokemons.searchField,
+        pokemons: state.requestPokemons.pokemons,
+        isPending: state.requestPokemons.isPending,
+        error: state.requestPokemons.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-        onRequestRobots: () => dispatch(requestRobots())
+        onRequestPokemons: () => dispatch(requestPokemons())
     }
 }
 
 class App extends Component {
 
     componentDidMount() {
-        this.props.onRequestRobots();
+        this.props.onRequestPokemons();
     }
 
     render() {
-        const { searchField, onSearchChange, robots, isPending } = this.props;
-        const filteredRobots = robots.filter(robot => {
-            return robot.name.toLowerCase().includes(searchField.toLowerCase());
+        const { searchField, onSearchChange, pokemons, isPending } = this.props;
+        const filteredPokemons = pokemons.filter(pokemon => {
+            return pokemon.name.toLowerCase().includes(searchField.toLowerCase());
         })
         return isPending ?
             <h1 className='tc'>Loading...</h1> :
@@ -43,7 +43,7 @@ class App extends Component {
                     <SearchBox searchChange={onSearchChange} />
                     <Scroll>
                         <ErrorBoundary>
-                            <CardList robots={filteredRobots} />
+                            <CardList pokemons={filteredPokemons} />
                         </ErrorBoundary>
                     </Scroll>
                 </div>
