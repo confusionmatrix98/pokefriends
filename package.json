@@ -1,8 +1,8 @@
 {
-  "name": "robofriends",
+  "name": "pokefriends",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://confusionmatrix98.github.io/robofriends",
+  "homepage": "https://confusionmatrix98.github.io/pokefriends",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
